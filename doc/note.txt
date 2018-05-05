@@ -1,0 +1,15 @@
+xpath:通过路径表达式从xml文件中获取节点
+表达式                 结果
+/xxx                    选择根节点xxx('/html')
+/xxx/yyy                根据绝对路径来选择、定位元素（'/html/body/form/input'）
+//xxx                   在整个文档里扫描，找到所有xxx的元素（'//input'）
+//xxx//yyy              所有父元素为xxx的yyy元素
+//xxx[@id]              选取所有xxx元素中有id属性的元素
+//xxx//yyy/..            当前元素的父元素
+
+driver.window_handles  获取句柄
+driver.current_window_handles 获取当前句柄
+driver.switch_to_window  切换窗体
+
+
+
