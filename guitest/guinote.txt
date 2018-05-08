@@ -1,0 +1,33 @@
+1、 python 三种文件
+    Py      脚本文件
+    Pyc     运行之后的临时文件
+    Pyw     专门用来写图形化的
+
+2、窗口组件
+    Frame(窗口) 除了wx本身，所有的python代码单词首字母大写
+
+3、使用步骤
+    1）导入wx模块
+    import wx
+    2)编写wxPython程序的方法很多，但不可避免的事情是创建应用程序对象。基本的应用程序类叫做wx.App，
+    它负责幕后所有的初始化。最简单的wxPython程序应该如下：
+    import wx
+    app = wx.App()
+    app.MainLoop()
+    3)窗口和组件，窗口（Window）也称为框架（Frame）
+    import wx
+    app = wx.App()
+    frame = wx.Frame(None)
+    frame.Show()#显示窗口
+    app.MainLoop()
+    4)标签、标题、位置和按钮
+        TextCtrl    文本
+            value       值，就是文本的内容
+            wx.TE_MULTILINE     垂直滚动条
+            wx.HSCROLL          水平滚动条
+        Button              按钮
+            label               标签，就是按钮上的内容
+
+
+
+
