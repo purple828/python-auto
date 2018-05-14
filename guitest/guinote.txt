@@ -28,6 +28,20 @@
         Button              按钮
             label               标签，就是按钮上的内容
 
+5、事件处理：利用部件的Bind方法可以将事件处理函数链接到给定的事件上
+    1）事件的绑定
+        GetValue   获取value内容
+        SetValue   设置value内容
+    2）语法
+        def load(event):  #只能传这个参数
+            path = filename.GetValue()
+    3)绑定文本
+        f = open(path,"r")
+        content.SetValue(f.read())
+        f.close()
+
+7、Tkinter
+
 
 
 

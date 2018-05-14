@@ -1,0 +1,53 @@
+1、网络编程：如何在程序中实现两台计算机的通信
+    python的网络编程：
+        用Python进行网络编程，就是在Python程序本身这个进程内，连接别的服务器进程的通信端口进行通信
+
+     python中有两个通讯模块：socket,socketserver
+     socket是网络编程
+
+
+     单工：    通讯通道只有一条，通讯双方不可逆   BB机
+     半双工：   通讯通道只有一条，通讯双方可逆    对讲机
+     全双工：   通讯通道有多条，通讯双方可逆      手机
+
+     TCP协议
+     UDP协议（易丢包）
+
+2、socket TCP服务器的搭建
+    1)导入模块
+        import socket
+    2)创建socket对象，socket是一个类
+        socket = socket.socket(socket_family,socket_type)
+        socket_family:
+            socket.AF_INET      适用网络协议的传播，ipv4
+            socket.AF_UNIX      使用与unix系统内部的传输
+            socket.AF_INET4      ipv6
+        socket_type:
+            socket.SOCK_STREAM      TCP协议
+            socket.SOCK_DGRAM       UDP协议
+    3）绑定ip和端口
+        sock.bind(('ip',端口))
+    4）设置监听最大数量
+        socket.listen(5)
+    5)接受信息
+        con,add = sock.accept()
+        con:接受sock对象，接受对方发送的信息
+        add:ip识别
+        print(con.recv(1024))
+        con.send('hello')
+    6)关闭套接字
+        Sock.close()
+
+
+    socket TCP客户端的搭建
+    1)导入模块
+        import socket
+    2)创建socket对象，socket是一个类
+        socket = socket.socket(socket_family,socket_type)
+    3）连接服务器
+        sock.connect(("服务器的ip",8000))
+    4）接受信息
+        sock.send('hello i am your user')
+        print(sock.recv(512))
+    5)关闭套接字
+        Sock.close()
