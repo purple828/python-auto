@@ -1,0 +1,6 @@
+1、Python查询mysql使用fetchone()方法获取单条数据，使用fetchall()方法获取多条数据
+    fetchone():该方法获取下一个查询结果集，结果集是一个对象
+    fetchall():接收全部的返回结果行,所有行是一个元组，每行所有的列是一个元组
+                eg:
+                 (('Mac', 'Mohan', 20, 'M', Decimal('2000')), ('Tom', 'Tommy', 20, 'M', Decimal('2000')), ('Fang', 'FangLijuan', 18, 'W', Decimal('3000')))
+    rowcount:只读属性，并返回执行execute()方法后影响的行数
