@@ -1,0 +1,28 @@
+1、python的smtplib提供了一种很方便的途径发送电子邮件。它对smtp协议进行了简单的封装。
+    Python创建 SMTP 对象语法如下：
+    import smtplib
+    smtpObj = smtplib.SMTP( [host [, port [, local_hostname]]] )
+
+    参数说明：
+    host: SMTP 服务器主机。 你可以指定主机的ip地址或者域名如:runoob.com，这个是可选参数。
+    port: 如果你提供了 host 参数, 你需要指定 SMTP 服务使用的端口号，一般情况下SMTP端口号为25。
+    local_hostname: 如果SMTP在你的本机上，你只需要指定服务器地址为 localhost 即可。
+
+    Python SMTP对象使用sendmail方法发送邮件，语法如下：
+    SMTP.sendmail(from_addr, to_addrs, msg[, mail_options, rcpt_options]
+
+    参数说明：
+    from_addr: 邮件发送者地址。
+    to_addrs: 字符串列表，邮件发送地址。
+    msg: 发送消息
+    这里要注意一下第三个参数，msg是字符串，表示邮件。我们知道邮件一般由标题，发信人，收件人，邮件内容，附件等构成，发送邮件的时候，要注意msg的格式。这个格式就是smtp协议中定义的格式。
+
+2、SMTP协议就是简单的文本命令和响应
+    SMTP服务器地址为“smtp.qq.com”，465端口是为SMTPS（SMTP-over-SSL）协议服务开放的，这是SMTP协议基于SSL安全协议之上的一种变种协议，它继承了SSL安全协议的非对称加密的高度安全可靠性，可防止邮件泄露
+    用set_debuglevel(1)就可以打印出和SMTP服务器交互的所有信息
+
+3、发送纯文本文件与html文件的区别在于：
+    构造MIMEText对象时，把HTML字符串传进去，再把第二个参数有plain改为html就行
+
+4、发送附件
+    带附件的邮件可以看做包含若干部分的邮件：文本和各个附件本身，所以，可以构造一个MIMEMultipart对象代表邮件本身，然后往里面加上一个MIMEText作为邮件正文，再继续往里面加上表示附件的MIMEBase对象即可：
