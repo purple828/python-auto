@@ -1,0 +1,35 @@
+1、python3线程中常用的两个模块：
+    _thread
+    threading(推荐)
+    两者的区别：
+        _thread提供了低级别的、原始的线程以及一个简单的锁
+        threading除了包含_thread模块中的所有方法外，还提供其他方法：
+            threading.currentThread():返回当前的线程变量
+            threading.enumerate():返回一个包含正在运行的线程的list，正在运行指线程启动后、结束前，不包括启动前和终止后的线程
+            threading.activeCount():返回正在运行的线程的数量，与len(threading.enumerate())有相同结果
+
+        除了使用方法外，线程模块同样提供了Thread类来处理线程，Thread类提供了以下方法：
+        run():用以表示线程活动的方法
+        start():启动线程活动
+        join([time]):等待至线程中止。这阻塞调用县城直至线程的join()方法被调用中止、正常退出或者抛出未处理的异常或可选的超时发生
+        isAlive():返回线程是否活动的
+        getName():返回线程名
+        setName():设置线程名
+
+
+2、使用线程的两种方式：
+    函数或用类来包装线程对象
+    函数式：
+        调用_thread模块中的start_new_thread()函数来产生新新线程，语法如下：
+            _thread.start_new_thread(function,args[,kwargs])
+            function:线程函数
+            args:传递给线程函数的参数，他必须是个tuple类型
+            kwargs:可选参数
+
+3、线程同步
+    使用Thread对象的Lock和Rlock可以实现简单的线程同步，两个对象都有acquere方法和release方法，
+    对于那些需要每次只允许一个线程操作的数据，可以将其操作放到acquire和release方法之间
+
+
+4、线程优先级队列
+    Queue模块中提供了同步的、线程安全的队列类，包括FIFO(先入先出)队列Queue,LIFO(后入先出)

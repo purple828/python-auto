@@ -1,29 +1,4 @@
+import re
 
-i = 1
-
-while i<=9:
-    j = 1
-while j<=i:
-    print("%d*%d=%d\t"%(j,i,i*j), end="")
-    j+=1
-    print("")
-    i+=1
-
-
-
-
-
-
-
-
-
-# print("Hello world！！！！！！")
-# a=list(range(0,11))
-# print(a);
-# dict={}
-#
-# dict['one']="fang"
-# dict['two']="Li"
-# dict['three']="娟"
-# print(dict.keys())
-# print(dict.values())
+print(re.match('www', 'www.runoob.com').span())  # 在起始位置匹配
+print(re.match('com', 'www.runoob.com'))         # 不在起始位置匹配
