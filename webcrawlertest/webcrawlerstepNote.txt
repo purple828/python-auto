@@ -2,3 +2,15 @@
 1、根据要爬的网页地址，通过requests模块获取页面内容
     requests.get(...)   需要构造header（可从浏览器获取）
 
+2、获取到页面内容后，通过BeautifulSoup将html解析为对象进行处理，全部页面转变为字典或者数组，相对于正则表达式的方式，可以大大简化处理过程
+    soup = BeautifulSoup(doc,'html.parser')
+    通过find()、find_all()等获取指定元素对象
+    获取内容常用的一些方法：
+    obj.get_text()      获取文本内容
+    a_boj['href']       获取a标签的href属性值
+    str.strip()         去除字符串前后的空格
+
+
+3、通过openpyxl模块的Workbook，将爬取的内容存入excel表格中
+    from openpyxl import Workbook
+
