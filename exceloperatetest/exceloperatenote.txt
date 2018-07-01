@@ -1,0 +1,4 @@
+1、Python操作Excel,主要用到xlrd和xlwt这两个库，xlrd--->读excel      xlwt--->写excel
+    xlwt:
+        write_merge(x, x + m, y, w + n, string, sytle)
+        x表示行，y表示列，m表示跨行个数，n表示跨列个数，string表示要写入的单元格内容，style表示单元格样式。其中，x，y，w，h，都是以0开始计算的

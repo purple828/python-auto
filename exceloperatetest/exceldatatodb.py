@@ -107,7 +107,7 @@ cur.execute(del_sql)
 #获取excel文件中的所有sheet对象
 count = 1
 for sheet in wb2:
-    print('sheet-------------------',sheet,end='\n')
+    print('sheet-------------------',sheet)
     #每一行为一个cell对象
     num = 1
     for cell in sheet:
