@@ -2,3 +2,26 @@
     xlwt:
         write_merge(x, x + m, y, w + n, string, sytle)
         x表示行，y表示列，m表示跨行个数，n表示跨列个数，string表示要写入的单元格内容，style表示单元格样式。其中，x，y，w，h，都是以0开始计算的
+
+    xlrd:
+        python读取excel中单元格的内容返回方式有5种类型ctype:
+        0   empty,
+        1   string
+        2   number
+        3   date
+        4   boolean
+        5   error
+
+       1) 当读取的单元格格式为date时：需使用xlrd的xldate_as_tuple来处理为date格式，先判断表格的ctype=3
+        eg:
+            if sheet.cell(i,j).ctype == 3:
+                value = xlrd.xldate_as_tuple(value,wb.datemode)
+                value = date(*value[:3]).strftime('%Y/%m/%d')
+
+        2) 获取合并单元格的内容
+            merged_cells():
+            返回的四个参数的含义：
+            （row,row_range,col,col_range）
+            范围：[row,row+range) ,[col,col+range)
+            eg:
+                (1,3,4,6)含义：第1行到2行合并，第4列到5列合并

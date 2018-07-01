@@ -33,7 +33,34 @@ def write_excel():
 
     sheet1.write(1,3,'2018/07/01')
 
-    sheet1.write_merge()
+
+
+    sheet2 = f.add_sheet(u'机票', cell_overwrite_ok=True)  # 创建sheet
+    row0 = ['业务', '状态', '北京', '上海', '广州', '深圳', '状态小计', '合计']
+    column0 = ['机票', '船票', '火车票', '汽车票', '其它']
+    status = ['预订', '出票', '退票', '业务小计']
+
+    # 生成第一行
+    for i in range(0, len(row0)):
+        sheet2.write(0, i, row0[i], set_style("Times New Roman", 220, True))
+
+    # 生成第一列和最后一列（合并4行）
+    i, j = 1, 0
+    while i < 4 * len(column0) and j < len(column0):
+        sheet2.write_merge(i, i + 3, 0, 0, column0[j], set_style('Arial', 220, True))
+        sheet2.write_merge(i, i + 3, 7, 7)
+        i += 4
+        j += 1
+    sheet2.write_merge(21, 21, 0, 1, u'合计', set_style('Times New Roman', 220, True))
+    # 生成第二列
+    m = 0
+    while m < 4 * len(column0):
+        for i in range(0, len(status)):
+            sheet2.write(i + m + 1, 1, status[i])
+        m += 4
+
+
+
 
     f.save("text.xls")
 
